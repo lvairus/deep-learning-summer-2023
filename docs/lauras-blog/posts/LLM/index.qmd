@@ -1,0 +1,61 @@
+---
+title: "Large Language Models"
+description: "Summary of LLM article by Serafim Batzoglou"
+author: "Laura Vairus"
+date: "2023-06-06"
+categories: false
+#[news, code, analysis]
+image: "image.jpg"
+---
+
+![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MZus-glUYW6V1ucTH2A1EQ.png)
+
+In his article "Large Language Models in Molecular Biology," Serafim Batzoglou discusses recent advancements in deep learning-based language models and their potential to significantly impact the field of molecular biology. The convergence of LLMs with large-scale genomic and population health data is expected to propel the understanding and modeling of biomolecular systems with a level of accuracy that surpasses human capacity.
+
+### Large Language Models (LLMs):
+
+LLMs are advanced neural networks capable of generating text that resembles human language. They're trained with vast amounts of data and learn to predict subsequent words in a sentence based on preceding words, allowing them to understand patterns, relationships, and context within the text.
+
+### The Genetic Dogma:
+
+![](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*xh5qab9iXVx21oblKKbc2w.jpeg){width="702"}
+
+The central dogma of molecular biology describes the unidirectional flow of genetic information from DNA to RNA to protein. Within the DNA, there are approximately 20,000 genes responsible for synthesizing proteins, which play crucial roles in various biological processes: acting as structural components, enzymes, and facilitating communication within cells.
+
+The process of protein synthesis includes transcription, splicing, and translation. Transcription produces messenger RNA (mRNA) by copying a DNA segment, which is then spliced to remove introns and retain exons, forming mature mRNA. Translation decodes the mRNA sequence into amino acids, which are linked to form proteins.
+
+Gene regulation, mediated by transcription factors and other proteins, ensures the timely and appropriate expression of genes within cells. Chromatin structure, consisting of DNA wrapped around histone proteins, plays a role in gene accessibility and regulation; and histone modifications and DNA methylation influence gene expression by changing chromatin structure.
+
+### Genetic Variation:
+
+An individuals' DNA and environmental influences shapes their biology throughout their lifetime. While humans share over 99.9% identical DNA, our DNA variants account for the heritability of traits, including contributions to health and disease.
+
+DNA variants are introduced through mutations in the DNA inherited from parents. Most variants are benign, while some may be deleterious or beneficial. Deleterious variants tend to be statistically eliminated from the population over time through natural selection. Essential genes are conserved with little to no mutation across generations due to their crucial role in fitness. Conversely, less significant genes are prone to more mutations as they have minimal fitness consequences and can be passed down without significant impact.
+
+Advancements in DNA sequencing technologies have made data collection rapid and cost-effective. Sequencing-based methods can measure various molecular functions, such as gene expression and chromatin structure. Other technologies like mass spectrometry and X-ray crystallography provide insights into protein levels and structures.
+
+Genome-wide association studies (GWAS) correlate genetic variants with specific phenotypes, providing valuable insights into gene functions and disease mechanisms. However, large language models (LLMs) are expected to surpass traditional association analyses in linking genetic variation to function. The combination of DNA sequencing technologies, data generation capabilities, and LLMs holds promise in advancing our understanding of genetic variation and its impact on molecular mechanisms and human physiology.
+
+### Prominent Language Models in Molecular Biology:
+
+In recent years, significant progress has been made in modeling the central dogma of molecular biology, offering insights into gene function and expression. While fully transforming molecular biology into a computational science or engineering human health is still a work in progress, the current momentum suggests that it's achievable with more data and development. For example, language models like LLMs excel at learning intricate statistical properties of complex sequential data.
+
+Breakthroughs in different stages of the central dogma exemplify this progress. Methods like SpliceAI accurately predict gene structure by identifying splicing sites, aiding in genetic disease diagnosis. Advances in protein structure prediction, particularly with AlphaFold, have come close to solving the protein folding problem, revolutionizing biological research and drug discovery. Tools like PrimateAI-3D help annotate genetic variants as benign or pathogenic, contributing to disease diagnosis and drug target identification. Language models such as Enformer show promise in predicting gene expression from DNA sequences alone, shedding light on gene regulation. Foundation models like scGPT and Nucleotide Transformer, trained on extensive data, provide valuable insights into single-cell biology and raw DNA sequences, facilitating various downstream applications.
+
+![](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*BRVmjtCysN8Sow3_X4n-zQ.jpeg){width="701"}
+
+Overall, the progress in modeling the central dogma of molecular biology demonstrates the potential of AI and deep learning in understanding gene function, expression, and regulation. Continued advancements and integration of diverse data sources will enhance our understanding of molecular biology and its impact on medicine and human health.
+
+### Looking Forward
+
+The availability of rich and affordable data is a significant driver of progress in this field. Advances in DNA sequencing technology have significantly reduced the cost of genome sequencing and other molecular assays, enabling comprehensive profiling of gene expression, chromatin structure, and other molecular layers. Initiatives like the UK Biobank and All Of Us project have collected extensive genetic and health data from large cohorts of participants, offering a wealth of information for research purposes. Cancer-focused companies, such as Tempus and Foundation Medicine, are also building vast genomic databases with clinical information.
+
+While developing these technologies, privacy concerns and the role of LLMs in clinical practice must be addressed. Proper informed consent and privacy measures are essential when training LLMs with participant data. LLMs should be seen as tools to assist healthcare professionals rather than replace them. Patient trust and verification remain crucial aspects of their application in clinical settings.
+
+LLMs are well-suited to integrate and analyze these diverse datasets. Through autoregressive or masked language modeling, these models can learn from single-cell datasets, functional genomics data, and clinical records to understand gene pathways, genomic variants, and their associations with human health. However, the challenge lies in technical innovations to represent and integrate different layers of information and scale up the model's processing capacity.
+
+Such an advanced LLM could have various applications, including clinical diagnosis, drug development, and advancing our understanding of molecular biology. It could aid doctors in making precise diagnoses, identify potential drug targets, and assist in personalized medicine. Additionally, the model could offer suggestions for additional experiments and contribute to filling gaps in data.
+
+### Conclusion
+
+Molecular biology's transition into a computational science is facilitated by the combination of extensive data acquisition and powerful models like LLMs. In the coming years, these models will enable accurate predictions of the complex biomolecular interactions that connect our DNA, cellular biology, and overall health. This advancement is expected to have a profound impact on various aspects of medicine. Additionally, the development of open foundation models that integrate genomic and medical data will drive research, innovation, and facilitate the practice of precision medicine.

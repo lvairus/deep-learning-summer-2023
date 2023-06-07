@@ -1,0 +1,31 @@
+{
+    "id": "6966BE1D",
+    "path": "~/Desktop/deep-learning/lauras-blog/posts/LLM/index.qmd",
+    "project_path": "posts/LLM/index.qmd",
+    "type": "quarto_markdown",
+    "hash": "3169492949",
+    "contents": "",
+    "dirty": false,
+    "created": 1686094207419.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "58,0",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "7990:3661"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1686094244,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1686094244101,
+    "read_only": false,
+    "read_only_alternatives": []
+}
