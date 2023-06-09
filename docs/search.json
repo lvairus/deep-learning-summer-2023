@@ -33,5 +33,68 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "posts/python-basics/index.html",
+    "href": "posts/python-basics/index.html",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Type\nName\nDescription\nExamples\n\n\n\n\nInteger\nint\nall integers\n-2, -1, 0, 1, 2\n\n\nFloat\nfloat\nall decimals\n1.0, 2.5, 4.987\n\n\nString\nstr\nsequence of characters\n“any text enclosed in single or double quotes, includes spaces and special characters”\n\n\nBoolean\nbool\nexpression that is True or False\nTrue, False, 2==2 (is read as True), 2==1 (is read as False)\n\n\n\nName variables using “camel case” format. Single word variable names should be all lowercase and multi-word names should have all but the first word capitalized capitalize every word after the first and have the rest as lowercase it’s best for variable names to be short but clear so you know what it’s referring to (This is not required but is good practice) example: word, twoWords, varNameExample, variable can contain numbers but cannot start with them Important: variables cannot be named special words that are already define in python, such as any datatype or built-in python function. Python will get confused because the variable name and function name and will give you an error. restricted variable names: int, float, str, bool, if, else, for, while, in, list, dict, def, class"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#operations",
+    "href": "posts/python-basics/index.html#operations",
+    "title": "Python Basics",
+    "section": "Operations:",
+    "text": "Operations:\nPython can compute simple calculations with operators\n\n\n\nCharacter\nOperation\nExample\n\n\n\n\n+\naddition\n1 + 2 -&gt; 3\n\n\n-\nsubtraction\n10 - 5 -&gt; 5\n\n\n*\nmultiplication\n3 * 4 -&gt; 12\n\n\n/\ndivision\n15 / 3 -&gt; 5\n\n\n**\npower\n4 ** 2 -&gt; 16\n\n\n//\nfloor division\n7 // 2 -&gt; 3\n\n\n\n(There don’t need to be spaces between the numbers and operations, it’s up to you)"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#user-input",
+    "href": "posts/python-basics/index.html#user-input",
+    "title": "Python Basics",
+    "section": "User Input",
+    "text": "User Input\nIf you want to interact with the user of your code, use the input() command\n# General Format: \nuserInput = input(\"message\")\nRunnning this line of code will prompt the user to enter a response based on what you write in the “message.” Their response will then get assigned to your variable, in this case userInput\n# Example\nuserName = input(\"What's your name? \")"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#if-else-statements",
+    "href": "posts/python-basics/index.html#if-else-statements",
+    "title": "Python Basics",
+    "section": "If Else Statements",
+    "text": "If Else Statements\nif condition:\n    # do something\nelse:\n    # do another thing\nyou can also add more possible conditions with elif\nif condition:\n    # do something\nelif other_condition:\n    # do something else\nelif other_condition:\n    # do something else \nelse:\n    # do another thing"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#for-and-while-loops",
+    "href": "posts/python-basics/index.html#for-and-while-loops",
+    "title": "Python Basics",
+    "section": "For and While Loops",
+    "text": "For and While Loops\nfor i in range(5):\n    # do something 5 times, \n    # i starts at 0 and ends at 4, increasing by 1 each time\ncolors = ['red', 'yellow', 'green', 'blue', 'pink']\nfor x in numList:\n        # do something with x\n        # x will start at the first index and end at the last index, \n        # going up one index each time\nWhile loops continue until the condition given to them is False\nwhile condition:\n    # do something\n    # something happens that changes the condition to become False\nbe careful not to make an infinite loop. There must always be something in the loop that changes the condition to eventually become False"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#object-oriented-programming",
+    "href": "posts/python-basics/index.html#object-oriented-programming",
+    "title": "Python Basics",
+    "section": "Object Oriented Programming:",
+    "text": "Object Oriented Programming:\nGeneral format:\n# Creating a class\n\nclass ClassName:\n    def __init__(self, parameters):\n        # Constructor\n             self.parameters = parameters   # setting up the variables in the object\n\n    def methodName(self, parameters):\n        # Method\n        return result\n\n# Creating an instance of the class (this is the object)\nobject = ClassName(parameters)\n\n# Calling methods on object\nobject.methodName(parameters)\nself will always be a parameter in all the functions when creating a class because it needs a way of knowing how to refer to itself. however, self does not appear as a parameter outside of creating the class (I think because it’s implied? idk don’t worry about it), so when you create the object and call methods on it, you don’t use self in the parameters.\nExample:\nclass Car:\n    def __init__(self, brand, color):\n        self.brand = brand\n        self.color = color\n      \n    def changeColor(self, newColor)\n        self.color = newColor\n\n    def startEngine(self):\n        print(\"Engine started for\", self.brand)\n\n# Creating objects of the Car class\ncar1 = Car(\"Toyota\", \"Red\")\ncar2 = Car(\"Honda\", \"Blue\")\n\n\n# Accessing attributes of objects\nprint(car1.brand)  # Output: \"Toyota\"\nprint(car1.color)  # Output: \"Red\"\n\nprint(car2.brand)  # Output: \"Honda\"\nprint(car2.color)  # Output: \"Blue\"\n\n# Calling methods on objects\ncar1.changeColor()\ncar1.start_engine()  # Output: Engine started for Toyota\ncar2.start_engine()  # Output: Engine started for Honda"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#making-functions",
+    "href": "posts/python-basics/index.html#making-functions",
+    "title": "Python Basics",
+    "section": "Making Functions",
+    "text": "Making Functions\ndef functionName(parameter):\n        # do something\n        return result\nNote: there doesn’t always have to be a parameter and there doesn’t always have to be a result"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#lists",
+    "href": "posts/python-basics/index.html#lists",
+    "title": "Python Basics",
+    "section": "Lists",
+    "text": "Lists\nMaking a list: Lists can be made up of any datatype you can initialize your list with or without elements\n# Empty list\nmyList = []\n\n# List with elements\nnumList = [1, 2, 3, 4, 5]\ncolorList = ['red', 'yellow', 'green', 'blue', 'pink']\nAccessing list values by index: Python numbers each element in order, but it starts from 0\n\n\n\nIndex\n0\n1\n2\n3\n4\n\n\n\n\nnumList\n1\n2\n3\n4\n5\n\n\ncolorList\n‘red’\n‘yellow’\n‘green’\n‘blue’\n‘pink’\n\n\n\n\nthis can get confusing so just keep the 0 index in mind when coding.\n# Accessing elements by index\nlistName[index] # returns the element at the index given\n\n# examples\ncolorList[0] # returns 'red'\ncolorList[4] # returns 'pink'\ncolorList[5] # returns an error because there isn't an index of 5\nThere’s a bunch of other more specific things you can do with lists but you can just look those up as you need while you code"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#common-functions",
+    "href": "posts/python-basics/index.html#common-functions",
+    "title": "Python Basics",
+    "section": "Common Functions",
+    "text": "Common Functions\nprint(\"text\") # prints out what you write in \"text\"\nlen() # returns the length of a string, list, tuple, or dictionary"
   }
 ]

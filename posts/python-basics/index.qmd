@@ -1,0 +1,209 @@
+---
+title: Python Basics 
+description: "Basic information and commands for python"
+author: "Laura Vairus"
+date: "2023-06-08"
+categories: [code, training, tutorial, cheatsheet]
+image: "image.jpg"
+---
+
+### Types of Variable (Datatypes):
+
+| Type    | Name  | Description                      | Examples                                                                               |
+|------------------|------------------|------------------|-------------------|
+| Integer | int   | all integers                     | -2, -1, 0, 1, 2                                                                        |
+| Float   | float | all decimals                     | 1.0, 2.5, 4.987                                                                        |
+| String  | str   | sequence of characters           | "any text enclosed in single or double quotes, includes spaces and special characters" |
+| Boolean | bool  | expression that is True or False | True, False, 2==2 (is read as True), 2==1 (is read as False)                           |
+
+Name variables using "camel case" format. Single word variable names should be all lowercase and multi-word names should have all but the first word capitalized capitalize every word after the first and have the rest as lowercase it's best for variable names to be short but clear so you know what it's referring to (This is not required but is good practice) example: word, twoWords, varNameExample, variable can contain numbers but cannot start with them Important: variables cannot be named special words that are already define in python, such as any datatype or built-in python function. Python will get confused because the variable name and function name and will give you an error. restricted variable names: int, float, str, bool, if, else, for, while, in, list, dict, def, class
+
+## Operations:
+
+Python can compute simple calculations with operators
+
+| Character | Operation      | Example         |
+|-----------|----------------|-----------------|
+| \+        | addition       | 1 + 2 -\> 3     |
+| \-        | subtraction    | 10 - 5 -\> 5    |
+| \*        | multiplication | 3 \* 4 -\> 12   |
+| /         | division       | 15 / 3 -\> 5    |
+| \*\*      | power          | 4 \*\* 2 -\> 16 |
+| //        | floor division | 7 // 2 -\> 3    |
+
+(There don't need to be spaces between the numbers and operations, it's up to you)
+
+## User Input
+
+If you want to interact with the user of your code, use the `input()` command
+
+```python
+# General Format: 
+userInput = input("message")
+```
+
+Runnning this line of code will prompt the user to enter a response based on what you write in the "message." Their response will then get assigned to your variable, in this case `userInput`
+
+```python
+# Example
+userName = input("What's your name? ")
+```
+
+## Common Functions
+
+``` python
+print("text") # prints out what you write in "text"
+len() # returns the length of a string, list, tuple, or dictionary
+```
+
+## Lists
+
+Making a list: Lists can be made up of any datatype you can initialize your list with or without elements
+
+``` python
+# Empty list
+myList = []
+
+# List with elements
+numList = [1, 2, 3, 4, 5]
+colorList = ['red', 'yellow', 'green', 'blue', 'pink']
+```
+
+Accessing list values by index: Python numbers each element in order, **but it starts from 0**
+
+| Index     | 0      | 1        | 2       | 3      | 4      |
+|----------------------|--------|----------|---------|--------|--------|
+| numList              | 1      | 2        | 3       | 4      | 5      |
+| colorList            | 'red'  | 'yellow' | 'green' | 'blue' | 'pink' |
+<!-- | **Index (negative)** | **-5** | **-4**   | **-3**  | **-2** | **-1** | -->
+
+this can get confusing so just keep the 0 index in mind when coding.
+
+```python
+# Accessing elements by index
+listName[index] # returns the element at the index given
+
+# examples
+colorList[0] # returns 'red'
+colorList[4] # returns 'pink'
+colorList[5] # returns an error because there isn't an index of 5
+```
+
+There's a bunch of other more specific things you can do with lists but you can just look those up as you need while you code
+
+## If Else Statements
+
+```python
+if condition:
+    # do something
+else:
+    # do another thing
+```
+
+you can also add more possible conditions with `elif`
+
+```python
+if condition:
+    # do something
+elif other_condition:
+    # do something else
+elif other_condition:
+    # do something else 
+else:
+    # do another thing
+```
+
+## For and While Loops
+
+```python
+for i in range(5):
+    # do something 5 times, 
+    # i starts at 0 and ends at 4, increasing by 1 each time
+```
+
+```python
+colors = ['red', 'yellow', 'green', 'blue', 'pink']
+for x in numList:
+        # do something with x
+        # x will start at the first index and end at the last index, 
+        # going up one index each time
+```
+
+While loops continue until the condition given to them is False
+
+```python
+while condition:
+    # do something
+    # something happens that changes the condition to become False
+```
+
+be careful not to make an infinite loop. There must always be something in the loop that changes the condition to eventually become False
+
+## Making Functions
+
+```python
+def functionName(parameter):
+        # do something
+        return result
+```
+
+Note: there doesn't always have to be a parameter and there doesn't always have to be a result
+
+## Object Oriented Programming:
+
+General format:
+
+```python
+# Creating a class
+
+class ClassName:
+    def __init__(self, parameters):
+        # Constructor
+             self.parameters = parameters   # setting up the variables in the object
+
+    def methodName(self, parameters):
+        # Method
+        return result
+
+# Creating an instance of the class (this is the object)
+object = ClassName(parameters)
+
+# Calling methods on object
+object.methodName(parameters)
+```
+
+self will always be a parameter in all the functions when creating a class because it needs a way of knowing how to refer to itself. however, self does not appear as a parameter outside of creating the class (I think because it's implied? idk don't worry about it), so when you create the object and call methods on it, you don't use self in the parameters.
+
+Example:
+
+```python
+class Car:
+    def __init__(self, brand, color):
+        self.brand = brand
+        self.color = color
+      
+    def changeColor(self, newColor)
+        self.color = newColor
+
+    def startEngine(self):
+        print("Engine started for", self.brand)
+
+# Creating objects of the Car class
+car1 = Car("Toyota", "Red")
+car2 = Car("Honda", "Blue")
+
+
+# Accessing attributes of objects
+print(car1.brand)  # Output: "Toyota"
+print(car1.color)  # Output: "Red"
+
+print(car2.brand)  # Output: "Honda"
+print(car2.color)  # Output: "Blue"
+
+# Calling methods on objects
+car1.changeColor()
+car1.start_engine()  # Output: Engine started for Toyota
+car2.start_engine()  # Output: Engine started for Honda
+```
+
+### 

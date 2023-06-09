@@ -2,7 +2,7 @@
 title: "Large Language Models"
 description: "Summary of LLM article by Serafim Batzoglou"
 author: "Laura Vairus"
-date: "2023-06-06"
+date: "06-06-2023"
 categories: false
 #[news, code, analysis]
 image: "image.jpg"
