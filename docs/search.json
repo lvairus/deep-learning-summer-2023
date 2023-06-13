@@ -21,20 +21,6 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Laura’s Blog",
-    "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJun 6, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nLarge Language Models\n\n\n\n\n\nSummary of LLM article by Serafim Batzoglou\n\n\n\n\n\n\nJun 6, 2023\n\n\nLaura Vairus\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJun 3, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "posts/python-basics/index.html",
     "href": "posts/python-basics/index.html",
     "title": "Python Basics",
@@ -56,6 +42,20 @@
     "text": "User Input\nIf you want to interact with the user of your code, use the input() command\n# General Format: \nuserInput = input(\"message\")\nRunnning this line of code will prompt the user to enter a response based on what you write in the “message.” Their response will then get assigned to your variable, in this case userInput\n# Example\nuserName = input(\"What's your name? \")"
   },
   {
+    "objectID": "posts/python-basics/index.html#common-functions",
+    "href": "posts/python-basics/index.html#common-functions",
+    "title": "Python Basics",
+    "section": "Common Functions",
+    "text": "Common Functions\nprint(\"text\") # prints out what you write in \"text\"\nlen() # returns the length of a string, list, tuple, or dictionary"
+  },
+  {
+    "objectID": "posts/python-basics/index.html#lists",
+    "href": "posts/python-basics/index.html#lists",
+    "title": "Python Basics",
+    "section": "Lists",
+    "text": "Lists\nMaking a list: Lists can be made up of any datatype you can initialize your list with or without elements\n# Empty list\nmyList = []\n\n# List with elements\nnumList = [1, 2, 3, 4, 5]\ncolorList = ['red', 'yellow', 'green', 'blue', 'pink']\nAccessing list values by index: Python numbers each element in order, but it starts from 0\n\n\n\nIndex\n0\n1\n2\n3\n4\n\n\n\n\nnumList\n1\n2\n3\n4\n5\n\n\ncolorList\n‘red’\n‘yellow’\n‘green’\n‘blue’\n‘pink’\n\n\n\n\nthis can get confusing so just keep the 0 index in mind when coding.\n# Accessing elements by index\nlistName[index] # returns the element at the index given\n\n# examples\ncolorList[0] # returns 'red'\ncolorList[4] # returns 'pink'\ncolorList[5] # returns an error because there isn't an index of 5\nThere’s a bunch of other more specific things you can do with lists but you can just look those up as you need while you code"
+  },
+  {
     "objectID": "posts/python-basics/index.html#if-else-statements",
     "href": "posts/python-basics/index.html#if-else-statements",
     "title": "Python Basics",
@@ -70,13 +70,6 @@
     "text": "For and While Loops\nfor i in range(5):\n    # do something 5 times, \n    # i starts at 0 and ends at 4, increasing by 1 each time\ncolors = ['red', 'yellow', 'green', 'blue', 'pink']\nfor x in numList:\n        # do something with x\n        # x will start at the first index and end at the last index, \n        # going up one index each time\nWhile loops continue until the condition given to them is False\nwhile condition:\n    # do something\n    # something happens that changes the condition to become False\nbe careful not to make an infinite loop. There must always be something in the loop that changes the condition to eventually become False"
   },
   {
-    "objectID": "posts/python-basics/index.html#object-oriented-programming",
-    "href": "posts/python-basics/index.html#object-oriented-programming",
-    "title": "Python Basics",
-    "section": "Object Oriented Programming:",
-    "text": "Object Oriented Programming:\nGeneral format:\n# Creating a class\n\nclass ClassName:\n    def __init__(self, parameters):\n        # Constructor\n             self.parameters = parameters   # setting up the variables in the object\n\n    def methodName(self, parameters):\n        # Method\n        return result\n\n# Creating an instance of the class (this is the object)\nobject = ClassName(parameters)\n\n# Calling methods on object\nobject.methodName(parameters)\nself will always be a parameter in all the functions when creating a class because it needs a way of knowing how to refer to itself. however, self does not appear as a parameter outside of creating the class (I think because it’s implied? idk don’t worry about it), so when you create the object and call methods on it, you don’t use self in the parameters.\nExample:\nclass Car:\n    def __init__(self, brand, color):\n        self.brand = brand\n        self.color = color\n      \n    def changeColor(self, newColor)\n        self.color = newColor\n\n    def startEngine(self):\n        print(\"Engine started for\", self.brand)\n\n# Creating objects of the Car class\ncar1 = Car(\"Toyota\", \"Red\")\ncar2 = Car(\"Honda\", \"Blue\")\n\n\n# Accessing attributes of objects\nprint(car1.brand)  # Output: \"Toyota\"\nprint(car1.color)  # Output: \"Red\"\n\nprint(car2.brand)  # Output: \"Honda\"\nprint(car2.color)  # Output: \"Blue\"\n\n# Calling methods on objects\ncar1.changeColor()\ncar1.start_engine()  # Output: Engine started for Toyota\ncar2.start_engine()  # Output: Engine started for Honda"
-  },
-  {
     "objectID": "posts/python-basics/index.html#making-functions",
     "href": "posts/python-basics/index.html#making-functions",
     "title": "Python Basics",
@@ -84,17 +77,31 @@
     "text": "Making Functions\ndef functionName(parameter):\n        # do something\n        return result\nNote: there doesn’t always have to be a parameter and there doesn’t always have to be a result"
   },
   {
-    "objectID": "posts/python-basics/index.html#lists",
-    "href": "posts/python-basics/index.html#lists",
+    "objectID": "posts/python-basics/index.html#object-oriented-programming",
+    "href": "posts/python-basics/index.html#object-oriented-programming",
     "title": "Python Basics",
-    "section": "Lists",
-    "text": "Lists\nMaking a list: Lists can be made up of any datatype you can initialize your list with or without elements\n# Empty list\nmyList = []\n\n# List with elements\nnumList = [1, 2, 3, 4, 5]\ncolorList = ['red', 'yellow', 'green', 'blue', 'pink']\nAccessing list values by index: Python numbers each element in order, but it starts from 0\n\n\n\nIndex\n0\n1\n2\n3\n4\n\n\n\n\nnumList\n1\n2\n3\n4\n5\n\n\ncolorList\n‘red’\n‘yellow’\n‘green’\n‘blue’\n‘pink’\n\n\n\n\nthis can get confusing so just keep the 0 index in mind when coding.\n# Accessing elements by index\nlistName[index] # returns the element at the index given\n\n# examples\ncolorList[0] # returns 'red'\ncolorList[4] # returns 'pink'\ncolorList[5] # returns an error because there isn't an index of 5\nThere’s a bunch of other more specific things you can do with lists but you can just look those up as you need while you code"
+    "section": "Object Oriented Programming:",
+    "text": "Object Oriented Programming:\nGeneral format:\n# Creating a class\n\nclass ClassName:\n    def __init__(self, parameters):\n        # Constructor\n             self.parameters = parameters   # setting up the variables in the object\n\n    def methodName(self, parameters):\n        # Method\n        return result\n\n# Creating an instance of the class (this is the object)\nobject = ClassName(parameters)\n\n# Calling methods on object\nobject.methodName(parameters)\nself will always be a parameter in all the functions when creating a class because it needs a way of knowing how to refer to itself. however, self does not appear as a parameter outside of creating the class (I think because it’s implied? idk don’t worry about it), so when you create the object and call methods on it, you don’t use self in the parameters.\nExample:\nclass Car:\n    def __init__(self, brand, color):\n        self.brand = brand\n        self.color = color\n      \n    def changeColor(self, newColor)\n        self.color = newColor\n\n    def startEngine(self):\n        print(\"Engine started for\", self.brand)\n\n# Creating objects of the Car class\ncar1 = Car(\"Toyota\", \"Red\")\ncar2 = Car(\"Honda\", \"Blue\")\n\n\n# Accessing attributes of objects\nprint(car1.brand)  # Output: \"Toyota\"\nprint(car1.color)  # Output: \"Red\"\n\nprint(car2.brand)  # Output: \"Honda\"\nprint(car2.color)  # Output: \"Blue\"\n\n# Calling methods on objects\ncar1.changeColor()\ncar1.start_engine()  # Output: Engine started for Toyota\ncar2.start_engine()  # Output: Engine started for Honda"
   },
   {
-    "objectID": "posts/python-basics/index.html#common-functions",
-    "href": "posts/python-basics/index.html#common-functions",
-    "title": "Python Basics",
-    "section": "Common Functions",
-    "text": "Common Functions\nprint(\"text\") # prints out what you write in \"text\"\nlen() # returns the length of a string, list, tuple, or dictionary"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Laura’s Blog",
+    "section": "",
+    "text": "population structure\n\n\n\n\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\nLaura Vairus\n\n\n\n\n\n\n  \n\n\n\n\nPython Basics\n\n\n\n\n\n\n\ncode\n\n\ntraining\n\n\ntutorial\n\n\ncheatsheet\n\n\n\n\nBasic information and commands for python\n\n\n\n\n\n\nJun 8, 2023\n\n\nLaura Vairus\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJun 6, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nLarge Language Models\n\n\n\n\n\nSummary of LLM article by Serafim Batzoglou\n\n\n\n\n\n\nJun 6, 2023\n\n\nLaura Vairus\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJun 3, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/2023-06-13-population-structure/index.html",
+    "href": "posts/2023-06-13-population-structure/index.html",
+    "title": "population structure",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(devtools)\n\nLoading required package: usethis\n\nlibrary(glue)\n\n\nif(!file.exists(glue(\"~/Downloads/analysis_population_structure.tgz\")))\n{\n  system(glue(\"wget -O ~/Downloads/analysis_population_structure.tgz https://uchicago.box.com/shared/static/zv1jyevq01mt130ishx25sgb1agdu8lj.tgz\"))\n  ## tar -xf file_name.tar.gz --directory /target/directory\n}\nsystem(glue(\"tar xvf ~/Downloads/analysis_population_structure.tgz --directory ~/Downloads/\")) \n\nThe following code is loading a function in gist.github.com/38431b74c6c0bf90c12f devtools::source_gist(\"38431b74c6c0bf90c12f\")\n\nwork.dir =\"~/Downloads/analysis_population_structure/\"\n\ndevtools::source_gist(\"38431b74c6c0bf90c12f\")\n\nℹ Sourcing gist \"38431b74c6c0bf90c12f\"\nℹ SHA-1 hash of file is \"cbeca7fd9bf1602dee41c4f1880cc3a5e8992303\"\n\n\n\npopinfo = read_tsv(paste0(work.dir,\"relationships_w_pops_051208.txt\"))\n\nRows: 1301 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \"\\t\"\nchr (5): FID, IID, dad, mom, population\ndbl (2): sex, pheno\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\npopinfo %&gt;% count(population)\n\n# A tibble: 11 × 2\n   population     n\n   &lt;chr&gt;      &lt;int&gt;\n 1 ASW           90\n 2 CEU          180\n 3 CHB           90\n 4 CHD          100\n 5 GIH          100\n 6 JPT           91\n 7 LWK          100\n 8 MEX           90\n 9 MKK          180\n10 TSI          100\n11 YRI          180\n\n\n\nsamdata = read_tsv(paste0(work.dir,\"phase3_corrected.psam\"),guess_max = 2500) \n\nRows: 2504 Columns: 6\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \"\\t\"\nchr (5): #IID, PAT, MAT, SuperPop, Population\ndbl (1): SEX\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nspec(samdata)\n\ncols(\n  `#IID` = col_character(),\n  PAT = col_character(),\n  MAT = col_character(),\n  SEX = col_double(),\n  SuperPop = col_character(),\n  Population = col_character()\n)\n\n\n\nsuperpop = samdata %&gt;% select(SuperPop,Population) %&gt;% unique()\nsuperpop = rbind(superpop, data.frame(SuperPop=c(\"EAS\",\"HIS\",\"AFR\"),Population=c(\"CHD\",\"MEX\",\"MKK\")))\n\n\nif(!file.exists(glue::glue(\"{work.dir}output/allhwe.hwe\")))\nsystem(glue::glue(\"~/bin/plink --bfile {work.dir}hapmapch22 --hardy --out {work.dir}output/allhwe\"))\nallhwe = read.table(glue::glue(\"{work.dir}output/allhwe.hwe\"),header=TRUE,as.is=TRUE)\nhist(allhwe$P)\n\n\n\n\n\nqqunif(allhwe$P,main='HWE HapMap3 All Pop')\n\nWarning in qqunif(allhwe$P, main = \"HWE HapMap3 All Pop\"): thresholding p to\n1e-30\n\n\n\n\n\n\npop = \"CHB\"\npop = \"CEU\"\npop = \"YRI\"\nfor(pop in c(\"CHB\",\"CEU\",\"YRI\"))\n{\n  ## what if we calculate with single population?\n  popinfo %&gt;% filter(population==pop) %&gt;%\n    write_tsv(path=glue::glue(\"{work.dir}{pop}.fam\") )\n  if(!file.exists(glue::glue(\"{work.dir}output/hwe-{pop}.hwe\")))\n  system(glue::glue(\"~/bin/plink --bfile {work.dir}hapmapch22 --hardy --keep {work.dir}{pop}.fam --out {work.dir}output/hwe-{pop}\"))\n  pophwe = read.table(glue::glue(\"{work.dir}output/hwe-{pop}.hwe\"),header=TRUE,as.is=TRUE)\n  hist(pophwe$P,main=glue::glue(\"HWE {pop} and founders only\"))\n  qqunif(pophwe$P,main=glue::glue(\"HWE {pop} and founders only\"))\n}\n\nWarning: The `path` argument of `write_tsv()` is deprecated as of readr 1.4.0.\nℹ Please use the `file` argument instead.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nigrowth = read_tsv(\"https://raw.githubusercontent.com/hakyimlab/igrowth/master/rawgrowth.txt\")\n\nRows: 3726 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \"\\t\"\nchr (3): IID, pop, serum\ndbl (4): sex, experim, meas.by, growth\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nspec(igrowth)\n\ncols(\n  IID = col_character(),\n  sex = col_double(),\n  pop = col_character(),\n  experim = col_double(),\n  meas.by = col_double(),\n  serum = col_character(),\n  growth = col_double()\n)\n\n\n\nigrowth = popinfo %&gt;% select(-pheno) %&gt;% inner_join(igrowth %&gt;% select(IID,growth), by=c(\"IID\"=\"IID\"))\nwrite_tsv(igrowth,path=glue::glue(\"{work.dir}igrowth.pheno\"))\nigrowth %&gt;% ggplot(aes(population,growth)) + geom_violin(aes(fill=population)) + geom_boxplot(width=0.2,col='black',fill='gray',alpha=.8) + theme_bw(base_size = 15)\n\nWarning: Removed 130 rows containing non-finite values (`stat_ydensity()`).\n\n\nWarning: Removed 130 rows containing non-finite values (`stat_boxplot()`).\n\n\n\n\n\n\nsummary( lm(growth~population,data=igrowth) )\n\n\nCall:\nlm(formula = growth ~ population, data = igrowth)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-58821 -18093  -2242  15896  98760 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    73080.8      938.2  77.894  &lt; 2e-16 ***\npopulationCEU  -2190.1     1175.4  -1.863   0.0625 .  \npopulationCHB   9053.1     2043.9   4.429 9.73e-06 ***\npopulationJPT   3476.8     2034.8   1.709   0.0876 .  \npopulationYRI  -7985.2     1137.2  -7.022 2.61e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 24160 on 3591 degrees of freedom\n  (130 observations deleted due to missingness)\nMultiple R-squared:  0.0345,    Adjusted R-squared:  0.03342 \nF-statistic: 32.08 on 4 and 3591 DF,  p-value: &lt; 2.2e-16\n\n\n\nif(!file.exists(glue::glue(\"{work.dir}output/igrowth.assoc.linear\")))\nsystem(glue::glue(\"~/bin/plink --bfile {work.dir}hapmapch22 --linear --pheno {work.dir}igrowth.pheno --pheno-name growth --maf 0.05 --out {work.dir}output/igrowth\"))\nigrowth.assoc = read.table(glue::glue(\"{work.dir}output/igrowth.assoc.linear\"),header=T,as.is=T)\nhist(igrowth.assoc$P)\n\n\n\n\n\nqqunif(igrowth.assoc$P)\n\n\n\n\n\nlibrary(qqman)\n\n\n\n\nFor example usage please run: vignette('qqman')\n\n\n\n\n\nCitation appreciated but not required:\n\n\nTurner, (2018). qqman: an R package for visualizing GWAS results using Q-Q and manhattan plots. Journal of Open Source Software, 3(25), 731, https://doi.org/10.21105/joss.00731.\n\n\n\n\nmanhattan(igrowth.assoc, chr=\"CHR\", bp=\"BP\", snp=\"SNP\", p=\"P\" )\n\n\n\n\n\n## generate PCs using plink\nif(!file.exists(glue::glue(\"{work.dir}output/pca.eigenvec\")))\nsystem(glue::glue(\"~/bin/plink --bfile {work.dir}hapmapch22 --pca --out {work.dir}output/pca\"))\n## read plink calculated PCs\npcplink = read.table(glue::glue(\"{work.dir}output/pca.eigenvec\"),header=F, as.is=T)\nnames(pcplink) = c(\"FID\",\"IID\",paste0(\"PC\", c(1:(ncol(pcplink)-2))) )\npcplink = popinfo %&gt;% left_join(superpop,by=c(\"population\"=\"Population\")) %&gt;% inner_join(pcplink, by=c(\"FID\"=\"FID\", \"IID\"=\"IID\"))\n## plot PC1 vs PC2\npcplink %&gt;% ggplot(aes(PC1,PC2,col=population,shape=SuperPop)) + geom_point(size=3,alpha=.7) + theme_bw(base_size = 15)\n\n\n\n\n\nif(!file.exists(glue::glue(\"{work.dir}output/igrowth-adjPC.assoc.linear\")))\nsystem(glue::glue(\"~/bin/plink --bfile {work.dir}hapmapch22 --linear --pheno {work.dir}igrowth.pheno --pheno-name growth --covar {work.dir}output/pca.eigenvec --covar-number 1-4 --hide-covar --maf 0.05 --out {work.dir}output/igrowth-adjPC\"))\nigrowth.adjusted.assoc = read.table(glue::glue(\"{work.dir}output/igrowth-adjPC.assoc.linear\"),header=T,as.is=T)\n##indadd = igrowth.adjusted.assoc$TEST==\"ADD\"\ntitulo = \"igrowh association adjusted for PCs\"\nhist(igrowth.adjusted.assoc$P,main=titulo)\n\n\n\n\n\nqqunif(igrowth.adjusted.assoc$P,main=titulo)"
   }
 ]
