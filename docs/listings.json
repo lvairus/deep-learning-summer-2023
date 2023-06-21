@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/conda/index.html",
+      "/posts/iris-nn/test.html",
       "/posts/2023-06-13-population-structure/index.html",
       "/posts/python-basics/index.html",
       "/posts/post-with-code/index.html",
