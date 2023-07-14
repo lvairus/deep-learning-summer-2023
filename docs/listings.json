@@ -2,7 +2,18 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/neural-nets/index.html",
+      "/posts/diabetes/index.html",
+      "/posts/diabetes/diabetes2.html",
+      "/posts/diabetes/diabetes1.html",
+      "/posts/Github/index.html",
+      "/posts/parsl-sheet-07-07-2023/index.html",
+      "/posts/parsl-07-07-2023/index.html",
+      "/posts/hackenf-07-05-2023/index.html",
+      "/posts/zero-to-hero/index.html",
+      "/posts/polaris-ssh/index.html",
       "/posts/conda/index.html",
+      "/posts/iris-nn/test copy.html",
       "/posts/iris-nn/test.html",
       "/posts/2023-06-13-population-structure/index.html",
       "/posts/python-basics/index.html",

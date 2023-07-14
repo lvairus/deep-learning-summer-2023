@@ -1,3 +1,51 @@
 ---
-Title: How to install conda
+title: "Using Conda"
+author: "Laura Vairus"
+date: "06-23-2023"
 ---
+
+You use python to code
+
+the python software itself is a directory somewhere on your computer.
+
+There can actually be multiple python directories on your computer that you could use. Each can be in a different directory and have different packages available to it.
+
+Conda is a software that lets you create an "environment" for coding
+
+an environment is just a directory stored somewhere in your computer that holds all the softwares and packages that your computer accesses when you use them for coding.
+
+You want to use environments to organize the softwares/packages you use for different projects that might not need the same softwares/packages.
+
+When you code python (in VSCode for example), you'll need to install packages like numpy or matplotlib to access more functions for your code. These packages are just directories that have to be stored somewhere on your computer, and your computer has to know where to look to access these packages and their functions.
+
+To look for packages, (if the package directory isn't in the immediate directory you're currently standing in?), your computer looks at a variable called PATH. This
+
+you can check the path to the current python you're using and what environment it's in by writing "which python" in a bash shell (like terminal on your computer or in VSCode)
+
+`which python`
+
+Now, let's create our own new env
+
+to make a new env
+
+`conda create —name envname`
+
+activate env to go in it and start using it
+
+`conda activate envname`
+
+You'll need to install python in your new env with
+
+`conda install python`
+
+Then install pip in your env to help with installing packages
+
+`conda install pip`
+
+Once you have python and pip, install python packages with pip
+
+`python -m pip install packagename`
+
+To leave your env and deactivate it (returns to default env)
+
+`conda deactivate`

@@ -1,0 +1,25 @@
+---
+title: "Zero to Hero"
+author: "Laura Vairus"
+date: "06-26-2023"
+---
+
+### 1. Building Micrograd
+
+Made a Value class for storing scalars, their operations, and the variables that directly led to them. Using \_\_add\_\_() lets you add them with a+b. using \_\_rmul\_\_() let's you do 2\*a (which normally doesn't work) by changing it to a\*2 computationally
+
+used a GraphViz api to visualize the flow of data
+
+Backpropagating is just taking derivatives of every node value/weight using the chain rule
+
+we need to add to gradients instead of redefining them because if one Value object is used multiple times, such as when one node connects to multiple others in the next layer, then it's gradient depends on the sum of all the derivatives of the nodes on the next layer with respect to itself. If we just use a `=` this gradient will just be overwritten everytime we take the derivative of a new node with respect to it. Therefore we must use a `+=`
+
+he made a topo function that, starting from an input node, makes a list of all the children that came before it in order, so no child is put after it's parent. He then reversed that list so it starts with the last output node and iterated through it, calling backward() on all of them. This ensures that the gradients using chain rule can have the derivatives available to calculate the new derivative.
+
+there is a backward() and \_backward(). the \_backward() provides information on specifically how to get the derivatives and backward() starts at the output node and propagates backward to calculate all the derivatives.
+
+### 2. Building Makemore
+
+first did bigrams but it was pretty bad
+
+counted every time one letter followed another based on a set of 32000 names and stored counts in a dictionary. also used a special character `.` that signified the beginning and end of the name. made a char to str and str to char dictionary that grouped the letters to their numbers (with . at 0, a at 1,..., and z at 26).

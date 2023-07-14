@@ -1,0 +1,54 @@
+---
+title: "How to install GPU-enabled tensorflow on a mac M1"
+author: "Laura Vairus"
+date: "07-11-2023"
+---
+
+
+[Sam's link](https://hakyimlab.slack.com/archives/C05B07D7FEJ/p1689085134816039?thread_ts=1689084915.481859&cid=C05B07D7FEJ)
+
+
+1. in terminal, activate the conda base you want this package to be in:
+
+2. install new tensorflow with the code below
+```
+conda install -c apple tensorflow-deps
+pip install tensorflow-macos
+pip install tensorflow_hub
+pip install tensorflow-metal
+
+```
+
+3. check in python script if the new gpu is available
+```
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices())
+```
+if you're on a jupyter notebook and it's not showing up, you might have to restart your kernel
+
+you should get an output that looks someting like this
+```
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 10497265438367669336
+xla_global_id: -1
+, name: "/device:GPU:0"
+device_type: "GPU"
+locality {
+  bus_id: 1
+}
+incarnation: 2909437390696073084
+physical_device_desc: "device: 0, name: METAL, pci bus id: <undefined>"
+xla_global_id: -1
+]
+2023-07-11 09:53:34.723239: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M1 Pro
+2023-07-11 09:53:34.723298: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2023-07-11 09:53:34.723308: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.33 GB
+2023-07-11 09:53:34.723367: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:303] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2023-07-11 09:53:34.723385: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:269] Created TensorFlow device (/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+```
+
+if only the CPU shows up, it was not successful

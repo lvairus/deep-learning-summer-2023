@@ -1,0 +1,33 @@
+---
+title: "Hackathon Enformer"
+author: "Laura Vairus"
+date: "07-05-2023"
+---
+
+today we worked on the hackathon enformer ipynb (finally)
+
+i was slow to start because of polaris and having all the right packages installed. It finally ended up working when I changed the `!` to a `%` when installing packages. However you only change the installations from ! to %, not any other bash code that makes folders and such because Dante changed all of them to % and his code didn't work.
+
+I learned in polaris my /home/user directory (where I first started and had my hackathon files) doesn't have that much space in it 15GB so Haky showed us a path to more space where imlab is working. `/grand/TFXcan/imlab/users/` in this directory we made our own little user folders to put our own personal things. we will use the data directory in imlab to put the data that we'll all use for future projects.
+
+I moved all my hackathon stuff into a new hackenf dir in my users dir
+
+storage and compute stuff is different so although TFXcan ran out of hours we can still use TFXcan for storage space. TFXcan is a project that gets processing allocation and storage allocation. They used up all the the processing hours but we still have storage space.
+
+in the VSCode terminal, `code .` opens a new VSCode window with the directort you're currently standing in. you can use this when you can't access folders such as the root.
+
+Question: how does gene target interval resizing work? is the starting interval
+
+it says "Essentially, we resized the length of the gene and pad it with the native sequences to the left and to the right, such that the length of the input sequence is 393216, and we can imagine our gene right at the center of this wider interval"
+
+so we first started by getting an interval of length 3 bins centered around a TSS. But since enformer takes a different input size we expand the interval length. So then what was the point of choosing a bin size if we're changing the interval anyway?
+
+ls -lth tells you the access information to the directories/files
+
+07-06:
+
+CAGE predicts gene expression
+
+![](images/Screen%20Shot%202023-07-06%20at%2011.30.46%20AM.png)
+
+I dont understand what these graphs are for and what they mean
