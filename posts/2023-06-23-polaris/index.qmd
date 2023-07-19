@@ -1,5 +1,5 @@
 ---
-title: "Usinig Polaris"
+title: "Using Polaris"
 author: "Laura Vairus"
 date: "06-23-2023"
 ---
