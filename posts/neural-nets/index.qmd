@@ -1,4 +1,0 @@
----
-title: "Neural Networks"
-author: "Laura Vairus"
----

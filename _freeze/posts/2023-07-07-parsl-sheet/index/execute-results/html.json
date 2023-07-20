@@ -1,0 +1,14 @@
+{
+  "hash": "b35844bd88719826fd12e891fec01a04",
+  "result": {
+    "markdown": "---\ntitle: \"Parsl Cheatsheet\"\nauthor: \"Laura Vairus\"\ndate: \"07-07-2023\"\n---\n\n\n### Imports\n\n::: {.cell}\n\n```{.r .cell-code}\nimport parsl\nfrom parsl.app.app import python_app, bash_app\n```\n:::\n\n\n### Making a python function parallelizable:\n\n::: {.cell}\n\n```{.python .cell-code}\n@python_app\ndef py_func(param):\n  # import any packages you need\n  # code \n\n# call function normally and it will be run async\nmy_func(param) \n```\n:::\n\n\n\n### Making a bash function parallelizable\n\n::: {.cell}\n\n```{.python .cell-code}\nimport parsl\nfrom parsl.app.app import bash_app\n\n@bash_app\ndef bash_func(stdout='path/output.stdout', stderr='path/error.stderr'):\n    return 'bash code string'\n\n# call function\nbash_func().result()\n\n# read the output file\nwith open('output-filename.stdout', 'r') as f:\n     print(f.read())\n```\n:::\n\n\n\n### AppFutures\nwhen you run apps that take a long time, instead of getting a variable for your return result, you get an appfuture variable, which holds information about the running code.\n\n::: {.cell}\n\n```{.python .cell-code}\n@python_app\ndef func ():\n    # code\n\n#assigning variable\napp_future = func()\n\n# boolean on whether the function is finished running or not\napp_future.done()\n\n# returns result, warning: calling this will make you wait until the function is finished\napp_future.result()\n\n# returns any exceptions raised during the app execution.\napp_future.exception()\n\n# attribute of appfuture, list of all DataFutures of function\napp_future.outputs\n```\n:::\n\n\n\n### DataFutures\nwhen you run apps that take a long time that return files, instead of getting the files for your results, you get an datafutures, which can be accessed through your appfuture's attributes, and which contain information about the files you will receive. \n\n::: {.cell}\n\n```{.python .cell-code}\n#assigning variable\ndata_future1 = app_future[0]\n\n# boolean on whether the data is available\ndata_future1.done()\n\n# retrieves the data object (e.g., file path, value) when it becomes available.\ndata_future1.result()\n\n# retrieves any exceptions raised during the data retrieval.\ndata_future1.exception()\n\n# references the parent AppFuture object that produced the data.\ndata_future1.parent\n```\n:::\n\n\n\n\n### dataflowkernel\n\nwip\n\n\n\n\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
