@@ -1,0 +1,14 @@
+{
+  "hash": "d3753e99a89e4787be16bb636c873aec",
+  "result": {
+    "markdown": "---\ntitle: \"Plotting Enformer Usage Notebook Predictions\"\nauthor: \"Laura Vairus\"\ndate: \"07-11-2023\"\neditor_options: \n  chunk_output_type: console\n---\n\n\nExploring matrix\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(ggplot2)\n\ndata <- read.csv('/Users/lauvav/Desktop/matrix_data.csv', header = FALSE)\n\nggplot(data, aes(x = V1, y = V2)) +\n  geom_point()\n\nmatrix <- as.matrix(data)\n\nclass(matrix)\n\nimage(matrix[-1,])\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ntargets_txt = 'https://raw.githubusercontent.com/calico/basenji/master/manuscripts/cross2020/targets_human.txt'\ndf_targets = read.csv(targets_txt, sep='\\t')\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
