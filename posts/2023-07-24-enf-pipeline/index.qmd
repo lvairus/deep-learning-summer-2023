@@ -1,0 +1,55 @@
+---
+title: "Using the Enformer Pipeline on Polaris"
+author: "Laura Vairus"
+date: "2023-07-24"
+---
+
+The enformer pipeline is a collection of files and code that are set up so we can easily run enformer predictions on the data we want.
+
+We access this pipeline through the private imlab github repository named "shared_folder"
+
+First, make sure you have access to this folder, if not ask Dr. Im. Then, git clone it to your working directory.
+
+The basic structure looks like this:
+
+![](IMG_5405.jpg){width="354"}
+
+There are more files but these are the main one's you need to worry about.
+
+The "config_files" folder holds all of the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later
+
+the "metadata" folder holds the intervals you want to predict on in the form of .txt files.
+
+the "scripts" folder contains the main python script with all the code for running enformer, as well as a modules folder which has more helper functions for the main script
+
+Finally the "software" folder contains the yaml file with all the packages and channels the python script imports and uses.
+
+The only thing you have to do is supply your own configuration.json and intervals.txt file, and call it in the command line.
+
+(The enformer pipeline is basically one big python function and the parameters to it are set in the config_files and you call the function in the terminal.)
+
+### Configuration Files
+
+For a more in-depth explanation of all the parameters in the config files, check the read me in the git repository <https://github.com/hakyimlab/shared_folder/tree/main/enformer_pipeline>
+
+The easiest way to make your own config file is to copy an existing one and change just the parameters you need.
+
+-   project_dir: path to your project folder, if it doesn't exist it will create a new one. Use the same project_dir for any enformer runs that you do for a specific project.
+-   interval_list_file: path to your intervals.txt file
+-   prediction_data_name: name of your current run, could be descriptive of which data or genome you're predicting on
+-   prediction_id: an id to separate your predictions under the same prediction_data_name
+-   use_parsl: should be true so you can run in parallel using all of polaris' GPUs
+-   output_dir: name of folder where your predictions will go
+-   bins_to_save: which bins you want to keep from the enformer prediction, -1 if you want all of them
+-   tracks_to_save: which tracks you want to keep from the enformer prediction, -1 if you want all of them
+-   sequence_source: which dna sequence you're predicting on. when using the reference genome you'd input "reference"
+-   predictions_log_dir: name of folder you'll keep your predictions log (you can just name it "predictions_log")
+-   batch_regions: batch sizes, how many predictions to run in parallel
+-   n_regions: amount of intervals you want predictions for
+-   logdir: name of log folder (you can just name it "job_logs")
+-   job_name: name of your run that will show up on the polaris queue
+-   queue: "preemptable"
+-   account: "AIHPC4EDU"
+-   hpc: "polaris"
+-   provider: "highthroughput"
+-   worker_init: loads and activates your environment. you will have to add `module load conda;` before the `conda activate` section.
