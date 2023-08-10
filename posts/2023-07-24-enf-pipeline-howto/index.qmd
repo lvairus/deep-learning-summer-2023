@@ -2,6 +2,7 @@
 title: "Using the Enformer Pipeline on Polaris"
 author: "Laura Vairus"
 date: "2023-07-24"
+categories: [howto]
 ---
 
 The enformer pipeline is a collection of files and code that are set up so we can easily run enformer predictions on the data we want.
