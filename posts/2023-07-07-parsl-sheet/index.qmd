@@ -5,12 +5,14 @@ date: "07-07-2023"
 ---
 
 ### Imports
+
 ```{r eval=FALSE}
 import parsl
 from parsl.app.app import python_app, bash_app
 ```
 
 ### Making a python function parallelizable:
+
 ```{python eval=FALSE}
 
 @python_app
@@ -23,8 +25,8 @@ my_func(param)
 
 ```
 
-
 ### Making a bash function parallelizable
+
 ```{python eval=FALSE}
 
 import parsl
@@ -43,16 +45,17 @@ with open('output-filename.stdout', 'r') as f:
 
 ```
 
-
 ### AppFutures
+
 when you run apps that take a long time, instead of getting a variable for your return result, you get an appfuture variable, which holds information about the running code.
+
 ```{python eval=FALSE}
 
 @python_app
 def func ():
     # code
 
-#assigning variable
+# assigning variable
 app_future = func()
 
 # boolean on whether the function is finished running or not
@@ -69,9 +72,10 @@ app_future.outputs
 
 ```
 
-
 ### DataFutures
-when you run apps that take a long time that return files, instead of getting the files for your results, you get an datafutures, which can be accessed through your appfuture's attributes, and which contain information about the files you will receive. 
+
+when you run apps that take a long time that return files, instead of getting the files for your results, you get an datafutures, which can be accessed through your appfuture's attributes, and which contain information about the files you will receive.
+
 ```{python eval=FALSE}
 
 #assigning variable
@@ -91,18 +95,6 @@ data_future1.parent
 
 ```
 
-
-
 ### dataflowkernel
 
 wip
-
-
-
-
-
-
-
-
-
-

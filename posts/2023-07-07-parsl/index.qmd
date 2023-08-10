@@ -4,9 +4,9 @@ author: "Laura Vairus"
 date: "07-07-2023"
 ---
 
-Parsl is a python package that lets you run multiple functions at once (in parallel).
+Parsl is a python package that lets you run multiple functions at once in parallel.
 
-Parsl automatically finds all the processors available for use and passes in your function calls to them so that they can be run asyncronously (at the same time without interrupting your main workflow).
+Parsl automatically finds all the processors available for use and passes in your function calls to them so that they can be run at the same time without interrupting your main workflow (asynchronously).
 
 So say you have a normal python function you want to run but it takes 10 seconds to finish. If you want to call that function normally you'll have to wait until it's finished running before you can do anything else.
 
@@ -20,18 +20,17 @@ Vocab: - app: parsl instance of your function - run in parallel: run multiple fu
 
 The following function takes some text and prints it out after one second
 
-```
+```         
 def function1(text):
   import time
   time.sleep(1)
   print(text)
   return
-
 ```
 
 The following takes 10 seconds to finish running
 
-```
+```         
 for i in range(10):
   function1(i)
   
@@ -39,7 +38,7 @@ for i in range(10):
 
 To use parsl to run this in parallel, all we have to do is import it and add a decorator to our function
 
-```
+```         
 import parsl
 from parsl.app.app import python_app
 
@@ -49,12 +48,11 @@ def function2(text):
   time.sleep(1)
   print(text)
   return
-
 ```
 
 Using this new function, the following takes less time to finish (the specific time depends on how many processors(?) you have available to use in parallel)
 
-```
+```         
 for i in range(10):
   function2(i)
   

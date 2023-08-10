@@ -148,12 +148,40 @@ ul.task-list li input[type="checkbox"] {
 <p>First, make sure you have access to this folder, if not ask Dr.&nbsp;Im. Then, git clone it to your working directory.</p>
 <p>The basic structure looks like this:</p>
 <p><img src="IMG_5405.jpg" class="img-fluid" width="354"></p>
-<p>There are more files but these are the main one’s you need to worry about.</p>
-<p>The “config_files” folder holds all of the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later</p>
-<p>the “metadata” folder holds the intervals you want to predict on in the form of .txt files.</p>
-<p>the “scripts” folder contains the main python script with all the code for running enformer, as well as a modules folder which has more helper functions for the main script</p>
-<p>Finally the “software” folder contains the yaml file with all the packages and channels the python script imports and uses.</p>
-<p>The only thing you have to do is supply your own configuration.json and intervals.txt file, and call it in the command line.</p>
+<blockquote class="blockquote">
+<p>shared_pipelines</p>
+<blockquote class="blockquote">
+<p>enformer_pipeline</p>
+<blockquote class="blockquote">
+<p>config files</p>
+<blockquote class="blockquote">
+<p>parameters.json</p>
+</blockquote>
+<p>metadata</p>
+<blockquote class="blockquote">
+<p>intervals.json</p>
+</blockquote>
+<p>scripts</p>
+<blockquote class="blockquote">
+<p>enformer_predict.py</p>
+<p>modules</p>
+<blockquote class="blockquote">
+<p>helper_functions.py</p>
+</blockquote>
+</blockquote>
+<p>software</p>
+<blockquote class="blockquote">
+<p>enformer_predict_tools.yaml</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>There are multiple pipeline’s under the shared_pipelines folder but we’re only going to use the first “enformer_pipeline” one. There are also more files within it but these are the main one’s you need to worry about.</p>
+<p>config_files: holds the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later</p>
+<p>metadata: holds the .txt files of all the intervals you want to predict on</p>
+<p>scripts: holds the main python script with all the code for running enformer, as well as a modules folder which has more helper functions that are used in the main script</p>
+<p>software: holds the yaml file with all the packages and channels the python script imports and uses.</p>
+<p>To use this pipeline, the only thing you have to do is supply your own configuration.json and intervals.txt file, and call them in the command line.</p>
 <p>(The enformer pipeline is basically one big python function and the parameters to it are set in the config_files and you call the function in the terminal.)</p>
 <section id="configuration-files" class="level3">
 <h3 class="anchored" data-anchor-id="configuration-files">Configuration Files</h3>
@@ -163,9 +191,9 @@ ul.task-list li input[type="checkbox"] {
 <li>project_dir: path to your project folder, if it doesn’t exist it will create a new one. Use the same project_dir for any enformer runs that you do for a specific project.</li>
 <li>interval_list_file: path to your intervals.txt file</li>
 <li>prediction_data_name: name of your current run, could be descriptive of which data or genome you’re predicting on</li>
-<li>prediction_id: an id to separate your predictions under the same prediction_data_name</li>
-<li>use_parsl: should be true so you can run in parallel using all of polaris’ GPUs</li>
-<li>output_dir: name of folder where your predictions will go</li>
+<li>prediction_id: an id to separate your predictions under the same prediction_data_name, could be descriptive of which regions you’re predicting on</li>
+<li>use_parsl: should be <code>true</code> so you can run in parallel using all of polaris’ GPUs</li>
+<li>output_dir: name of folder where specifically your predictions will go (there are other outputs such as logs and information that will go in other folders</li>
 <li>bins_to_save: which bins you want to keep from the enformer prediction, -1 if you want all of them</li>
 <li>tracks_to_save: which tracks you want to keep from the enformer prediction, -1 if you want all of them</li>
 <li>sequence_source: which dna sequence you’re predicting on. when using the reference genome you’d input “reference”</li>

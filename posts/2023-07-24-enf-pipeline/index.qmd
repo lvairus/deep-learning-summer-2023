@@ -14,17 +14,41 @@ The basic structure looks like this:
 
 ![](IMG_5405.jpg){width="354"}
 
-There are more files but these are the main one's you need to worry about.
+> shared_pipelines
+>
+> > enformer_pipeline
+> >
+> > > config files
+> > >
+> > > > parameters.json
+> > >
+> > > metadata
+> > >
+> > > > intervals.json
+> > >
+> > > scripts
+> > >
+> > > > enformer_predict.py
+> > > >
+> > > > modules
+> > > >
+> > > > > helper_functions.py
+> > >
+> > > software
+> > >
+> > > > enformer_predict_tools.yaml
 
-The "config_files" folder holds all of the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later
+There are multiple pipeline's under the shared_pipelines folder but we're only going to use the first "enformer_pipeline" one. There are also more files within it but these are the main one's you need to worry about.
 
-the "metadata" folder holds the intervals you want to predict on in the form of .txt files.
+config_files: holds the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later
 
-the "scripts" folder contains the main python script with all the code for running enformer, as well as a modules folder which has more helper functions for the main script
+metadata: holds the .txt files of all the intervals you want to predict on
 
-Finally the "software" folder contains the yaml file with all the packages and channels the python script imports and uses.
+scripts: holds the main python script with all the code for running enformer, as well as a modules folder which has more helper functions that are used in the main script
 
-The only thing you have to do is supply your own configuration.json and intervals.txt file, and call it in the command line.
+software: holds the yaml file with all the packages and channels the python script imports and uses.
+
+To use this pipeline, the only thing you have to do is supply your own configuration.json and intervals.txt file, and call them in the command line.
 
 (The enformer pipeline is basically one big python function and the parameters to it are set in the config_files and you call the function in the terminal.)
 
@@ -37,9 +61,9 @@ The easiest way to make your own config file is to copy an existing one and chan
 -   project_dir: path to your project folder, if it doesn't exist it will create a new one. Use the same project_dir for any enformer runs that you do for a specific project.
 -   interval_list_file: path to your intervals.txt file
 -   prediction_data_name: name of your current run, could be descriptive of which data or genome you're predicting on
--   prediction_id: an id to separate your predictions under the same prediction_data_name
--   use_parsl: should be true so you can run in parallel using all of polaris' GPUs
--   output_dir: name of folder where your predictions will go
+-   prediction_id: an id to separate your predictions under the same prediction_data_name, could be descriptive of which regions you're predicting on
+-   use_parsl: should be `true` so you can run in parallel using all of polaris' GPUs
+-   output_dir: name of folder where specifically your predictions will go (there are other outputs such as logs and information that will go in other folders
 -   bins_to_save: which bins you want to keep from the enformer prediction, -1 if you want all of them
 -   tracks_to_save: which tracks you want to keep from the enformer prediction, -1 if you want all of them
 -   sequence_source: which dna sequence you're predicting on. when using the reference genome you'd input "reference"
