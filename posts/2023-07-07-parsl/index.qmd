@@ -16,7 +16,7 @@ Parsl can help shorten the time it takes for all 100 runs to finish AND let you 
 
 Vocab: - app: parsl instance of your function - run in parallel: run multiple functions at the same time - run asyncronously: run a function at the same time as others without interrupting main workflow - submitting a job: calling a function that has a parsl decorator
 
-# Using Parcel
+# Using Parsl
 
 The following function takes some text and prints it out after one second
 
