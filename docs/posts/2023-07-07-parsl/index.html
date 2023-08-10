@@ -143,21 +143,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Parsl is a python package that lets you run multiple functions at once (in parallel).</p>
-<p>Parsl automatically finds all the processors available for use and passes in your function calls to them so that they can be run asyncronously (at the same time without interrupting your main workflow).</p>
+<p>Parsl is a python package that lets you run multiple functions at once in parallel.</p>
+<p>Parsl automatically finds all the processors available for use and passes in your function calls to them so that they can be run at the same time without interrupting your main workflow (asynchronously).</p>
 <p>So say you have a normal python function you want to run but it takes 10 seconds to finish. If you want to call that function normally you’ll have to wait until it’s finished running before you can do anything else.</p>
 <p>Now say you want to run that function 100 times. That’ll take 17 minutes to finish running before you can do anything else.</p>
 <p>Parsl can help shorten the time it takes for all 100 runs to finish AND let you work on other code while you wait for that.</p>
 <p>Vocab: - app: parsl instance of your function - run in parallel: run multiple functions at the same time - run asyncronously: run a function at the same time as others without interrupting main workflow - submitting a job: calling a function that has a parsl decorator</p>
-<section id="using-parcel" class="level1">
-<h1>Using Parcel</h1>
+<section id="using-parsl" class="level1">
+<h1>Using Parsl</h1>
 <p>The following function takes some text and prints it out after one second</p>
 <pre><code>def function1(text):
   import time
   time.sleep(1)
   print(text)
-  return
-</code></pre>
+  return</code></pre>
 <p>The following takes 10 seconds to finish running</p>
 <pre><code>for i in range(10):
   function1(i)
@@ -171,8 +170,7 @@ def function2(text):
   import time
   time.sleep(1)
   print(text)
-  return
-</code></pre>
+  return</code></pre>
 <p>Using this new function, the following takes less time to finish (the specific time depends on how many processors(?) you have available to use in parallel)</p>
 <pre><code>for i in range(10):
   function2(i)

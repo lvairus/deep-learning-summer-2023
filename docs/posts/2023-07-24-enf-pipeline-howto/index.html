@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Laura Vairus">
-<meta name="dcterms.date" content="2023-06-23">
+<meta name="dcterms.date" content="2023-07-24">
 
-<title>Laura’s Blog - How to Use Conda</title>
+<title>Laura’s Blog - Using the Enformer Pipeline on Polaris</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to Use Conda</h1>
+      <h1 class="title">Using the Enformer Pipeline on Polaris</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">howto</div>
               </div>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 23, 2023</p>
+        <p class="date">July 24, 2023</p>
       </div>
     </div>
     
@@ -146,31 +146,74 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>You use python to code</p>
-<p>the python software itself is a directory somewhere on your computer.</p>
-<p>There can actually be multiple python directories on your computer that you could use. Each can be in a different directory and have different packages available to it.</p>
-<p>Conda is a software that lets you create an “environment” for coding</p>
-<p>an environment is just a directory stored somewhere in your computer that holds all the softwares and packages that your computer accesses when you use them for coding.</p>
-<p>You want to use environments to organize the softwares/packages you use for different projects that might not need the same softwares/packages.</p>
-<p>When you code python (in VSCode for example), you’ll need to install packages like numpy or matplotlib to access more functions for your code. These packages are just directories that have to be stored somewhere on your computer, and your computer has to know where to look to access these packages and their functions.</p>
-<p>To look for packages, (if the package directory isn’t in the immediate directory you’re currently standing in?), your computer looks at a variable called PATH. This</p>
-<p>you can check the path to the current python you’re using and what environment it’s in by writing “which python” in a bash shell (like terminal on your computer or in VSCode)</p>
-<p><code>which python</code></p>
-<p>Now, let’s create our own new env</p>
-<p>to make a new env</p>
-<p><code>conda create —name envname</code></p>
-<p>activate env to go in it and start using it</p>
-<p><code>conda activate envname</code></p>
-<p>You’ll need to install python in your new env with</p>
-<p><code>conda install python</code></p>
-<p>Then install pip in your env to help with installing packages</p>
-<p><code>conda install pip</code></p>
-<p>Once you have python and pip, install python packages with pip</p>
-<p><code>python -m pip install packagename</code></p>
-<p>To leave your env and deactivate it (returns to default env)</p>
-<p><code>conda deactivate</code></p>
+<p>The enformer pipeline is a collection of files and code that are set up so we can easily run enformer predictions on the data we want.</p>
+<p>We access this pipeline through the private imlab github repository named “shared_folder”</p>
+<p>First, make sure you have access to this folder, if not ask Dr.&nbsp;Im. Then, git clone it to your working directory.</p>
+<p>The basic structure looks like this:</p>
+<p><img src="IMG_5405.jpg" class="img-fluid" width="354"></p>
+<blockquote class="blockquote">
+<p>shared_pipelines</p>
+<blockquote class="blockquote">
+<p>enformer_pipeline</p>
+<blockquote class="blockquote">
+<p>config files</p>
+<blockquote class="blockquote">
+<p>parameters.json</p>
+</blockquote>
+<p>metadata</p>
+<blockquote class="blockquote">
+<p>intervals.json</p>
+</blockquote>
+<p>scripts</p>
+<blockquote class="blockquote">
+<p>enformer_predict.py</p>
+<p>modules</p>
+<blockquote class="blockquote">
+<p>helper_functions.py</p>
+</blockquote>
+</blockquote>
+<p>software</p>
+<blockquote class="blockquote">
+<p>enformer_predict_tools.yaml</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>There are multiple pipeline’s under the shared_pipelines folder but we’re only going to use the first “enformer_pipeline” one. There are also more files within it but these are the main one’s you need to worry about.</p>
+<p>config_files: holds the configuration .json files. These are the parameters that are input into the python script so you can run enformer on any region and individual you want. We will go more in-depth about the config files later</p>
+<p>metadata: holds the .txt files of all the intervals you want to predict on</p>
+<p>scripts: holds the main python script with all the code for running enformer, as well as a modules folder which has more helper functions that are used in the main script</p>
+<p>software: holds the yaml file with all the packages and channels the python script imports and uses.</p>
+<p>To use this pipeline, the only thing you have to do is supply your own configuration.json and intervals.txt file, and call them in the command line.</p>
+<p>(The enformer pipeline is basically one big python function and the parameters to it are set in the config_files and you call the function in the terminal.)</p>
+<section id="configuration-files" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-files">Configuration Files</h3>
+<p>For a more in-depth explanation of all the parameters in the config files, check the read me in the git repository <a href="https://github.com/hakyimlab/shared_folder/tree/main/enformer_pipeline" class="uri">https://github.com/hakyimlab/shared_folder/tree/main/enformer_pipeline</a></p>
+<p>The easiest way to make your own config file is to copy an existing one and change just the parameters you need.</p>
+<ul>
+<li>project_dir: path to your project folder, if it doesn’t exist it will create a new one. Use the same project_dir for any enformer runs that you do for a specific project.</li>
+<li>interval_list_file: path to your intervals.txt file</li>
+<li>prediction_data_name: name of your current run, could be descriptive of which data or genome you’re predicting on</li>
+<li>prediction_id: an id to separate your predictions under the same prediction_data_name, could be descriptive of which regions you’re predicting on</li>
+<li>use_parsl: should be <code>true</code> so you can run in parallel using all of polaris’ GPUs</li>
+<li>output_dir: name of folder where specifically your predictions will go (there are other outputs such as logs and information that will go in other folders</li>
+<li>bins_to_save: which bins you want to keep from the enformer prediction, -1 if you want all of them</li>
+<li>tracks_to_save: which tracks you want to keep from the enformer prediction, -1 if you want all of them</li>
+<li>sequence_source: which dna sequence you’re predicting on. when using the reference genome you’d input “reference”</li>
+<li>predictions_log_dir: name of folder you’ll keep your predictions log (you can just name it “predictions_log”)</li>
+<li>batch_regions: batch sizes, how many predictions to run in parallel</li>
+<li>n_regions: amount of intervals you want predictions for</li>
+<li>logdir: name of log folder (you can just name it “job_logs”)</li>
+<li>job_name: name of your run that will show up on the polaris queue</li>
+<li>queue: “preemptable”</li>
+<li>account: “AIHPC4EDU”</li>
+<li>hpc: “polaris”</li>
+<li>provider: “highthroughput”</li>
+<li>worker_init: loads and activates your environment. you will have to add <code>module load conda;</code> before the <code>conda activate</code> section.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

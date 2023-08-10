@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Laura Vairus">
-<meta name="dcterms.date" content="2023-06-23">
+<meta name="dcterms.date" content="2023-06-26">
 
-<title>Laura’s Blog - How to Use Conda</title>
+<title>Laura’s Blog - Zero to Hero</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,9 +108,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to Use Conda</h1>
+      <h1 class="title">Zero to Hero</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">howto</div>
+                <div class="quarto-category">notes</div>
               </div>
                   </div>
   </div>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 23, 2023</p>
+        <p class="date">June 26, 2023</p>
       </div>
     </div>
     
@@ -146,31 +146,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>You use python to code</p>
-<p>the python software itself is a directory somewhere on your computer.</p>
-<p>There can actually be multiple python directories on your computer that you could use. Each can be in a different directory and have different packages available to it.</p>
-<p>Conda is a software that lets you create an “environment” for coding</p>
-<p>an environment is just a directory stored somewhere in your computer that holds all the softwares and packages that your computer accesses when you use them for coding.</p>
-<p>You want to use environments to organize the softwares/packages you use for different projects that might not need the same softwares/packages.</p>
-<p>When you code python (in VSCode for example), you’ll need to install packages like numpy or matplotlib to access more functions for your code. These packages are just directories that have to be stored somewhere on your computer, and your computer has to know where to look to access these packages and their functions.</p>
-<p>To look for packages, (if the package directory isn’t in the immediate directory you’re currently standing in?), your computer looks at a variable called PATH. This</p>
-<p>you can check the path to the current python you’re using and what environment it’s in by writing “which python” in a bash shell (like terminal on your computer or in VSCode)</p>
-<p><code>which python</code></p>
-<p>Now, let’s create our own new env</p>
-<p>to make a new env</p>
-<p><code>conda create —name envname</code></p>
-<p>activate env to go in it and start using it</p>
-<p><code>conda activate envname</code></p>
-<p>You’ll need to install python in your new env with</p>
-<p><code>conda install python</code></p>
-<p>Then install pip in your env to help with installing packages</p>
-<p><code>conda install pip</code></p>
-<p>Once you have python and pip, install python packages with pip</p>
-<p><code>python -m pip install packagename</code></p>
-<p>To leave your env and deactivate it (returns to default env)</p>
-<p><code>conda deactivate</code></p>
+<section id="building-micrograd" class="level3">
+<h3 class="anchored" data-anchor-id="building-micrograd">1. Building Micrograd</h3>
+<p>Made a Value class for storing scalars, their operations, and the variables that directly led to them. Using __add__() lets you add them with a+b. using __rmul__() let’s you do 2*a (which normally doesn’t work) by changing it to a*2 computationally</p>
+<p>used a GraphViz api to visualize the flow of data</p>
+<p>Backpropagating is just taking derivatives of every node value/weight using the chain rule</p>
+<p>we need to add to gradients instead of redefining them because if one Value object is used multiple times, such as when one node connects to multiple others in the next layer, then it’s gradient depends on the sum of all the derivatives of the nodes on the next layer with respect to itself. If we just use a <code>=</code> this gradient will just be overwritten everytime we take the derivative of a new node with respect to it. Therefore we must use a <code>+=</code></p>
+<p>he made a topo function that, starting from an input node, makes a list of all the children that came before it in order, so no child is put after it’s parent. He then reversed that list so it starts with the last output node and iterated through it, calling backward() on all of them. This ensures that the gradients using chain rule can have the derivatives available to calculate the new derivative.</p>
+<p>there is a backward() and _backward(). the _backward() provides information on specifically how to get the derivatives and backward() starts at the output node and propagates backward to calculate all the derivatives.</p>
+</section>
+<section id="building-makemore" class="level3">
+<h3 class="anchored" data-anchor-id="building-makemore">2. Building Makemore</h3>
+<p>first did bigrams but it was pretty bad</p>
+<p>counted every time one letter followed another based on a set of 32000 names and stored counts in a dictionary. also used a special character <code>.</code> that signified the beginning and end of the name. made a char to str and str to char dictionary that grouped the letters to their numbers (with . at 0, a at 1,…, and z at 26).</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

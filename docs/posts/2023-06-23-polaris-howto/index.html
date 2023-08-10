@@ -9,7 +9,7 @@
 <meta name="author" content="Laura Vairus">
 <meta name="dcterms.date" content="2023-06-23">
 
-<title>Laura’s Blog - How to Use Conda</title>
+<title>Laura’s Blog - Using Polaris</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to Use Conda</h1>
+      <h1 class="title">Using Polaris</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">howto</div>
               </div>
@@ -146,31 +146,84 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>You use python to code</p>
-<p>the python software itself is a directory somewhere on your computer.</p>
-<p>There can actually be multiple python directories on your computer that you could use. Each can be in a different directory and have different packages available to it.</p>
-<p>Conda is a software that lets you create an “environment” for coding</p>
-<p>an environment is just a directory stored somewhere in your computer that holds all the softwares and packages that your computer accesses when you use them for coding.</p>
-<p>You want to use environments to organize the softwares/packages you use for different projects that might not need the same softwares/packages.</p>
-<p>When you code python (in VSCode for example), you’ll need to install packages like numpy or matplotlib to access more functions for your code. These packages are just directories that have to be stored somewhere on your computer, and your computer has to know where to look to access these packages and their functions.</p>
-<p>To look for packages, (if the package directory isn’t in the immediate directory you’re currently standing in?), your computer looks at a variable called PATH. This</p>
-<p>you can check the path to the current python you’re using and what environment it’s in by writing “which python” in a bash shell (like terminal on your computer or in VSCode)</p>
-<p><code>which python</code></p>
-<p>Now, let’s create our own new env</p>
-<p>to make a new env</p>
-<p><code>conda create —name envname</code></p>
-<p>activate env to go in it and start using it</p>
-<p><code>conda activate envname</code></p>
-<p>You’ll need to install python in your new env with</p>
-<p><code>conda install python</code></p>
-<p>Then install pip in your env to help with installing packages</p>
-<p><code>conda install pip</code></p>
-<p>Once you have python and pip, install python packages with pip</p>
-<p><code>python -m pip install packagename</code></p>
-<p>To leave your env and deactivate it (returns to default env)</p>
-<p><code>conda deactivate</code></p>
+<p>You first need to have an account with ALCF, the Argonne Facility, the place that owns the supercomputer we want to use. Haky signed us up for it</p>
+<p>We got an email with instructions on how to set up a password for logging into the supercomputer. We do this using the MobilePass+ app (careful not to use the MobilePass app that doesn’t have a + at the end). Enter a pin for the mobile pass app.</p>
+<p>Once you have the pass set up, it will provide you with passwords that change each time you use it.</p>
+<section id="log-in-on-terminal-app" class="level3">
+<h3 class="anchored" data-anchor-id="log-in-on-terminal-app">Log in on terminal app</h3>
+<p>open terminal</p>
+<p>to use the ssh key (i don’t know what ssh is)</p>
+<p><code>ssh &lt;username&gt;@&lt;ALCF_compute_system_name&gt;.alcf.anl.gov</code></p>
+<p>for me I would type <code>lvairus@polaris.alcf.anl.gov</code></p>
+<p>it will then prompt you for a password. This will be the 8 digit code MobilePass+ provides you in big numbers after you enter your pin. do not put a space between the numbers in your passcode.</p>
+<p>After that you should be in the super computer. Please code responsibly as that is property of the federal government</p>
+<p>To leave the super computer just type</p>
+<p><code>exit</code></p>
+</section>
+<section id="log-in-on-vscode-first-time" class="level3">
+<h3 class="anchored" data-anchor-id="log-in-on-vscode-first-time">Log in on VSCode (first time)</h3>
+<p>Open VSCode</p>
+<p>Install the extension called “Remote - SSH”</p>
+<p>Once it’s installed, click the button on the bottom left of the window</p>
+<p><img src="images/Screen Shot 2023-06-23 at 3.07.33 PM.png" class="img-fluid"></p>
+<p>This gives you a prompt at the top of the window</p>
+<p><img src="images/Screen Shot 2023-06-23 at 3.08.15 PM.png" class="img-fluid"></p>
+<p>select “Connect to Host…”</p>
+<p>then “+ Add New SSH Host…”</p>
+<p>like terminal, enter <code>ssh &lt;username&gt;@&lt;ALCF_compute_system_name&gt;.alcf.anl.gov</code></p>
+<p>a window will pop up at the bottom right of your screen, click the “Connect” button. This will take you to a new VSCode window</p>
+<p>click the first option</p>
+<p>It will prompt you to enter your passcode, get it from MobilePass+ and enter it</p>
+<p>You should be in :)</p>
+</section>
+<section id="note" class="level3">
+<h3 class="anchored" data-anchor-id="note">Note:</h3>
+<p>when you first enter polaris you are in what’s called the “login node.” To run code, you will need to be in a “computing code” which we will go over how to do</p>
+</section>
+<section id="conda-on-polaris" class="level2">
+<h2 class="anchored" data-anchor-id="conda-on-polaris">Conda on Polaris</h2>
+<p>Polaris has its own conda env that you can use</p>
+<p>In your polaris login node:</p>
+<p>Load the conda env</p>
+<p><code>module load conda/2023-01-10-unstable</code></p>
+<p>activate the base</p>
+<p><code>conda activate base</code></p>
+<p>Make sure you’re standing in your home directory</p>
+<p><code>mkdir -p venvs/polaris/2023-01-10</code></p>
+<p>create a virtual environment</p>
+<p><code>python3 -m venv venvs/polaris/2023-01-10 --system-site-packages</code></p>
+<p>activate the env</p>
+<p><code>source venvs/polaris/2023-01-10/bin/activate\</code></p>
+<p>upgrade pip and do something with “setuptools wheel”</p>
+<p><code>python3 -m pip install --upgrade pip setuptools wheel</code></p>
+<p>you’re now free to pip install packages as needed into an isolated env with</p>
+<p><code>python3 -m pip install &lt;package&gt;</code></p>
+<p>:)</p>
+</section>
+<section id="requesting-compute-node" class="level2">
+<h2 class="anchored" data-anchor-id="requesting-compute-node">Requesting Compute Node</h2>
+<p>As I said before, you start at a login node and must get to a compute node to run code. if you run code on the login node they’ll kick you out (?)</p>
+<p><code>qsub -I -A AIHPC4EDU -l walltime=1:00:00 -l filesystems=home:grand -q debug</code></p>
+<p>you might have to replace <code>AIHPC4EDU</code> and <code>-q debug</code> with something else, ask Haky</p>
+<p>it takes a minute to get you to the compute node</p>
+<p>Once you’re there, you’re in a new computer so you’ll have to activate your envs again</p>
+<p>load conda</p>
+<p><code>module load conda/2023-01-10-unstable</code></p>
+<p>activate conda base</p>
+<p><code>conda activate base</code></p>
+<p>activate your venv</p>
+<p><code>source venvs/polaris/2023-01-10/bin/activate</code></p>
+<section id="using-jupyter-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="using-jupyter-notebook">Using Jupyter Notebook</h3>
+<p>get your ip address</p>
+<p><code>my_ip_address=$( ip rule | grep -w '0:' | awk '{print $3;exit}' )</code></p>
+<p>print your ip address</p>
+<p><code>echo $my_ip_address</code></p>
+<p><code>jupyter-notebook --no-browser --ip=$my_ip_address --port=15005 # should be between 15000 and 30000</code></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
