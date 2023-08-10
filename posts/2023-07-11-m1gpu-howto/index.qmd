@@ -2,6 +2,7 @@
 title: "How to install GPU-enabled tensorflow on a mac M1"
 author: "Laura Vairus"
 date: "07-11-2023"
+categories: ["howto"]
 ---
 
 

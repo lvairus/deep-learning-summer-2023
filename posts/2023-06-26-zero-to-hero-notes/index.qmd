@@ -2,6 +2,7 @@
 title: "Zero to Hero"
 author: "Laura Vairus"
 date: "06-26-2023"
+categories: [notes]
 ---
 
 ### 1. Building Micrograd

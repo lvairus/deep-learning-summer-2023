@@ -1,7 +1,8 @@
 ---
-title: "Using Conda"
+title: "How to Use Conda"
 author: "Laura Vairus"
 date: "06-23-2023"
+categories: [howto]
 ---
 
 You use python to code

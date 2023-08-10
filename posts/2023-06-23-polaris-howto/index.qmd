@@ -2,6 +2,7 @@
 title: "Using Polaris"
 author: "Laura Vairus"
 date: "06-23-2023"
+categories: [howto]
 ---
 
 You first need to have an account with ALCF, the Argonne Facility, the place that owns the supercomputer we want to use. Haky signed us up for it
