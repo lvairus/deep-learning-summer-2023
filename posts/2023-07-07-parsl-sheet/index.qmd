@@ -74,7 +74,7 @@ app_future.outputs
 
 ### DataFutures
 
-when you run apps that take a long time that return files, instead of getting the files for your results, you get an datafutures, which can be accessed through your appfuture's attributes, and which contain information about the files you will receive.
+when you run apps that take a long time that return files, instead of getting the files for your results, you get datafutures, which can be accessed through your appfuture's attributes, and which contain information about the files you will receive.
 
 ```{python eval=FALSE}
 
