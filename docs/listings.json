@@ -2,7 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/2023-08-10-concat-query/epigenome.html",
+      "/posts/2023-08-15-compare-mats-groundtruth/blog_code.html",
       "/posts/2023-07-24-enf-pipeline-howto/index.html",
       "/posts/2023-07-21-comparing-edge-middle-preds/test_output.html",
       "/posts/2023-07-20-parsl-test/parsl-test.html",
@@ -27,7 +27,8 @@
       "/posts/2023-06-21-iris-nn/test.html",
       "/posts/2023-06-13-population-structure/index.html",
       "/posts/2023-06-08-python-basics/index.html",
-      "/posts/2023-06-06-LLM/index.html"
+      "/posts/2023-06-06-LLM/index.html",
+      "/posts/2023-08-10-concat-query-method-howto/blog-concat-query.html"
     ]
   }
 ]
