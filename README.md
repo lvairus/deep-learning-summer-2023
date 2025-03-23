@@ -3,7 +3,7 @@
 ## Overview
 I learned about neural networks and pytorch and used those skills to use models to find relations between genes and phenotypes.
 
-This [blog page](https://lvairus.github.io/vairus-blog/) contains my documentations of my learning, tutorials, and projects.
+This [blog page](https://lvairus.github.io/deep-learning-summer-2023/) contains my documentations of my learning, tutorials, and projects.
 
 ## Projects:
 
